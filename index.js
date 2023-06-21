@@ -3,9 +3,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-//for host
-const path = require('path');
-app.use(express.static(path.join(__dirname,'/build')));
+
 
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://abhimanyur372:oiliDFeRwmA4FG0R@cluster0.yszwvoe.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -41,6 +39,11 @@ const expenseSchema = new mongoose.Schema({
 const Expense = mongoose.model('Expense', expenseSchema);
 
 const app = express();
+
+//for host
+const path = require('path');
+app.use(express.static(path.join(__dirname,'/build')));
+
 app.use(express.json());
 
   // Define the POST route for user registration
